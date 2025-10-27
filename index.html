@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>I You — Creator Platform (Demo)</title>
+  <meta name="description" content="I You - Creator platform prototype. Upload, play and track watch time. Demo static website." />
+  <style>
+    /* Simple, clean styling */
+    :root {
+      --bg: #0f172a;
+      --card: #0b1220;
+      --accent: #ff5a00;
+      --muted: #94a3b8;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body { height:100%; margin:0; background: linear-gradient(180deg,#071022 0%, #07122a 100%); color:#e6eef8; }
+    .wrap { max-width:1100px; margin:32px auto; padding:24px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:flex; gap:12px; align-items:center; }
+    .logo { width:48px; height:48px; background:linear-gradient(135deg,#ff8a00,#ff5a00); border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#061022; font-size:20px; }
+    nav a { color:var(--muted); text-decoration:none; margin-left:16px; font-size:14px; }
+    .hero { margin-top:28px; display:grid; grid-template-columns: 1fr 380px; gap:24px; align-items:center; }
+    .card { background:var(--card); padding:20px; border-radius:var(--radius); box-shadow: 0 6px 20px rgba(2,6,23,0.6); }
+    h1 { margin:0 0 8px 0; font-size:28px; }
+    p.lead { color:var(--muted); margin:0 0 18px 0; line-height:1.5; }
+    .cta { display:flex; gap:12px; }
+    .btn { padding:10px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:600; }
+    .btn-primary { background:linear-gradient(90deg,#ff7a1a,#ff4d00); color:#071022; }
+    .btn-ghost { background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.04); }
+    .features { display:grid; gap:12px; margin-top:18px; }
+    .feature { display:flex; gap:12px; align-items:flex-start; }
+    .icon { width:44px; height:44px; border-radius:10px; background:var(--glass); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--accent); }
+    /* right column (demo panel) */
+    .panel { padding:18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px; }
+    .input, .file { width:100%; padding:10px; margin-top:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit; }
+    .small { font-size:13px; color:var(--muted); margin-top:8px; }
+    /* video cards */
+    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:16px; margin-top:22px; }
+    .video-card { background:var(--glass); padding:10px; border-radius:12px; text-align:left; }
+    .thumb { height:120px; border-radius:8px; background:linear-gradient(90deg,#061022,#0b1220); display:flex; align-items:center; justify-content:center; color:var(--muted); }
+    footer { margin-top:40px; color:var(--muted); font-size:13px; text-align:center; }
+    @media (max-width:880px) {
+      .hero { grid-template-columns: 1fr; }
+      .panel { order:2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">IY</div>
+        <div>
+          <div style="font-weight:700">I You</div>
+          <div style="font-size:12px; color:var(--muted)">Creator platform — demo website</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#deploy">Host</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="card">
+          <h1>I You — Apna creator app banao</h1>
+          <p class="lead">Ek simple prototype. Upload videos, track watch-time, aur automatic monetization logic ke liye ready hooks. Ye demo static website hai — backend ke liye Firebase add karo.</p>
+          <div class="cta">
+            <button class="btn btn-primary" id="openSnack">Open Expo Snack (Mobile demo)</button>
+            <button class="btn btn-ghost" id="getCode">Get Code</button>
+          </div>
+
+          <div id="quick" class="features">
+            <div class="feature"><div class="icon">⚡</div><div><strong>Fast setup</strong><div class="small">Copy-paste file, host on GitHub Pages.</div></div></div>
+            <div class="feature"><div class="icon">🔐</div><div><strong>Auth ready</strong><div class="small">Firebase placeholders included — sign in/signup flows add karna easy.</div></div></div>
+            <div class="feature"><div class="icon">📦</div><div><strong>Upload hooks</strong><div class="small">Client-side upload snippet included (use your Firebase config).</div></div></div>
+          </div>
+        </div>
+
+        <div id="features" style="margin-top:18px;">
+          <div class="card">
+            <h3>How it works (summary)</h3>
+            <ol style="color:var(--muted); padding-left:18px;">
+              <li>Frontend: React Native / Web UI (we provide sample)</li>
+              <li>Backend: Firebase (Auth, Firestore, Storage) — free Spark plan for prototype</li>
+              <li>Monetization: Cloud Function reads watch events & subscriber count</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel card" id="demo">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="font-weight:700">Demo Panel</div>
+          <div style="font-size:12px; color:var(--muted)">Static demo</div>
+        </div>
+
+        <div style="margin-top:12px;">
+          <label class="small">Video Title</label>
+          <input class="input" id="title" placeholder="Example: Gym Tips 1" />
+          <label class="small">Select Video (demo, not uploaded)</label>
+          <input class="file" id="file" type="file" accept="video/*" />
+          <div style="display:flex; gap:8px; margin-top:10px;">
+            <button class="btn btn-primary" id="uploadBtn">Upload (Demo)</button>
+            <button class="btn btn-ghost" id="demoSubscribe">Subscribe (Demo)</button>
+          </div>
+          <div id="status" class="small"></div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <div style="font-weight:600; font-size:14px;">Gallery</div>
+          <div class="grid" id="videosGrid">
+            <!-- placeholder cards -->
+            <div class="video-card">
+              <div class="thumb">No video backend configured</div>
+              <div style="margin-top:8px; color:var(--muted); font-size:13px;">Demo: paste Firebase config to load real videos</div>
+            </div>
+            <div class="video-card">
+              <div class="thumb">Demo Thumb</div>
+              <div style="margin-top:8px; color:var(--muted); font-size:13px;">Title: Sample</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="deploy" style="margin-top:18px;">
+      <div class="card">
+        <h3>Quick host instructions</h3>
+        <ol style="color:var(--muted); padding-left:18px;">
+          <li>GitHub Pages: Create repo → add this `index.html` → Settings → Pages → Deploy from main → URL ready.</li>
+          <li>Netlify: Drag & drop this `index.html` in Netlify Drop → live site in seconds.</li>
+          <li>Vercel: New project → import repo → Deploy. Use for serverless functions later.</li>
+        </ol>
+
+        <h4 style="margin-top:12px;">Optional: Add Firebase (placeholders below)</h4>
+        <pre style="background:#071226;padding:10px;border-radius:8px;color:#a6c8ff;overflow:auto;font-size:13px;">
+// 1) Create Firebase project
+// 2) Enable Auth (Email/Google), Firestore, Storage
+// 3) Copy your firebaseConfig and paste in `initFirebase()` below
+        </pre>
+      </div>
+    </section>
+
+    <footer>
+      I You — demo. Built for quick prototyping. © 2025
+    </footer>
+  </div>
+
+  <script>
+    // Basic client-side demo actions (no backend required).
+    document.getElementById('openSnack').addEventListener('click', () => {
+      // Link to Expo Snack you can create — this is placeholder.
+      window.open('https://snack.expo.dev', '_blank');
+    });
+    document.getElementById('getCode').addEventListener('click', () => {
+      alert('Copy this file (index.html). Deploy on GitHub Pages / Netlify. See the Host section.');
+    });
+
+    document.getElementById('uploadBtn').addEventListener('click', () => {
+      const title = document.getElementById('title').value || 'Untitled';
+      const f = document.getElementById('file').files[0];
+      const status = document.getElementById('status');
+      if (!f) { status.innerText = 'Choose a video file to demo upload.'; return; }
+      // Demo "fake upload" to show UX. Replace with Firebase Storage code when ready.
+      status.innerText = 'Demo: file "' + f.name + '" (size: '+ Math.round(f.size/1024)+' KB) — not really uploaded.';
+      // Example: here you'd call Firebase Storage APIs to upload and Firestore to create video doc.
+    });
+
+    document.getElementById('demoSubscribe').addEventListener('click', () => {
+      const status = document.getElementById('status');
+      status.innerText = 'Subscribed (demo). In real app this updates channel subscriberCount in Firestore.';
+    });
+
+    // Optional Firebase init function (paste your config here)
+    function initFirebase() {
+      /* 
+      Example (replace with your real config from Firebase console):
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "PROJECT.firebaseapp.com",
+        projectId: "PROJECT",
+        storageBucket: "PROJECT.appspot.com",
+        messagingSenderId: "SENDER_ID",
+        appId: "APP_ID"
+      };
+      // Then initialize standard Firebase SDK (modular or compat) and enable features:
+      // - Auth: signInWithPopup / createUserWithEmailAndPassword
+      // - Storage: uploadBytes / getDownloadURL
+      // - Firestore: collection('videos').add(...)
+      */
+    }
+  </script>
+</body>
+</html>
